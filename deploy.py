@@ -27,10 +27,10 @@ def import_and_predict(img, model):
 if 'account' not in st.session_state:
      st.session_state.account = dict()
 st.write("""
-         # Image classification
+         # Diagnoses of breast cancer(IDC) using medical images
          """
          )
-st.write("This is a simple image classification web app to diagnose breast cancer IDC")
+st.write("This is a simple image classification web app to diagnose breast cancer IDC using tissue example images")
 email = st.text_input("Enter your email:", "trojan@usc.edu")
 if 'email' not in st.session_state:
     st.session_state.email = False
