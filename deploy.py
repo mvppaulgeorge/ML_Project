@@ -70,6 +70,7 @@ if st.session_state.email:
             i_sum = i_sum+pred[0][0]
         if l ==0:
             res_class0=0
+            res_class1=0
         else:
             res_class0=(i_sum)/l
             res_class1=1-res_class0
