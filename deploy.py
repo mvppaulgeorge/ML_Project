@@ -1,10 +1,10 @@
 import tensorflow as tf
-model = tf.keras.models.load_model('batt.h5')
+model = tf.keras.models.load_model('cnn_2.h5')
 import streamlit as st
 import mysql.connector
 from PIL import Image, ImageOps
 st.set_page_config(
-     page_title="Used Battery Collector",
+     page_title="Breast Cancer Diagnostic Application",
      page_icon="🧊",
      layout="wide",
      initial_sidebar_state="expanded",
@@ -25,10 +25,10 @@ def import_and_predict(img, model):
 if 'account' not in st.session_state:
      st.session_state.account = dict()
 st.write("""
-         # Battery type Classification
+         # Image classification
          """
          )
-st.write("This is a simple image classification web app to classify battery type")
+st.write("This is a simple image classification web app to diagnose breast cancer IDC")
 email = st.text_input("Enter your email:", "trojan@usc.edu")
 if 'email' not in st.session_state:
     st.session_state.email = False
@@ -42,8 +42,7 @@ if st.session_state.email:
           st.session_state.account[email] = 0
     
     
-    file = st.camera_input("Take a Picture")
-    #file = st.file_uploader("Please upload an image file", type=["jpg", "png"])
+    file = st.file_uploader("Please upload an image file", type=["jpg", "png"])
 
     if file is None:
         st.text("Please upload an image file")
