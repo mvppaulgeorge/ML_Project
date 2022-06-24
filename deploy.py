@@ -68,8 +68,12 @@ if st.session_state.email:
             img = tf.expand_dims(img,axis=0)
             pred = model.predict(img)
             i_sum = i_sum+pred[0][0]
-        res_class0=(i_sum)/l
-        res_class1=1-res_class0
+        if l ==0:
+            res_class0=0
+        else:
+            res_class0=(i_sum)/l
+            res_class1=1-res_class0
+          
         st.write("Our application has concluded a "+str(round(res_class1,3))+" possibility of diagnosing IDC breast cancer")
         
         if res_class0>=0.5 and res_class0<0.75:
