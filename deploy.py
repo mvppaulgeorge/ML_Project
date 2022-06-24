@@ -54,10 +54,9 @@ if st.session_state.email:
         WIDTH = 50
         HEIGHT = 50
         CHANNELS = 3
-        for filename in file[:25]:
-          img = Image.open(filename)
-          st.image(img, use_column_width=True)
-          full_size_image = cv2.imread(img)
+        for img in file[:25]:
+          image = Image.open(img)
+          full_size_image = cv2.imread(image)
           x.append(cv2.resize(full_size_image, (WIDTH,HEIGHT), interpolation=cv2.INTER_CUBIC))
     
         X=np.array(x)
