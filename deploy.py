@@ -55,7 +55,8 @@ if st.session_state.email:
         HEIGHT = 50
         CHANNELS = 3
         for filename in file[:25]:
-          img = filename.getvalue()
+          img = Image.open(filename)
+          st.image(img, use_column_width=True)
           full_size_image = cv2.imread(img)
           x.append(cv2.resize(full_size_image, (WIDTH,HEIGHT), interpolation=cv2.INTER_CUBIC))
     
