@@ -3,4 +3,4 @@ streamlit==1.8.0
 numpy==1.21.0
 pillow==8.4.0
 mysql-connector-python==8.0.28
-cv2==4.6.0
+opencv-python-headless
