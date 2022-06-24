@@ -42,26 +42,44 @@ if st.session_state.email:
           st.session_state.account[email] = 0
     
     
-    file = st.file_uploader("Please upload an image file", type=["jpg", "png"])
+    file = st.file_uploader("Please upload an image file", type=["jpg", "png"], accept_multiple_files=True)
 
     if file is None:
         st.text("Please upload an image file")
     else:
         # myObj = {"action":"photo","email":email};
+         
+        x = []
+        WIDTH = 50
+        HEIGHT = 50
+        CHANNELS = 3
+        for img in file[:25]:
+          full_size_image = cv2.imread(img)
+          x.append(cv2.resize(full_size_image, (WIDTH,HEIGHT), interpolation=cv2.INTER_CUBIC))
+    
+        X=np.array(x)
+        X=X/255.0
+        test = X
+        l = len(test)
+        i_sum = 0
+        for i in range(0,l):
+            img = test[i]
+            img = tf.expand_dims(img,axis=0)
+            pred = model.predict(img)
+            i_sum = i_sum+pred[0][0]
+        res_class0=(i_sum)/l
+        res_class1=1-res_class0
         
-        image = Image.open(file)
-        st.image(image, use_column_width=True)
-        res = import_and_predict(image, model)
-          
-        if res[0][0]>res[0][1] and res[0][0]>res[0][2]:
-            st.write("It is a 9V Battery")
-            st.session_state.account[email] += 3
-            st.write("You got 3 MRC credits! Your current MRC balance is", st.session_state.account[email])
-        elif res[0][1]>res[0][0] and res[0][1]>res[0][2]:
-            st.write("It is AA Battery")
-            st.session_state.account[email] += 2
-            st.write("You got 2 MRC credits! Your current MRC balance is", st.session_state.account[email])
+        if res_class0>=0.5 and res_class0<0.75:
+            st.write("You are unlikely to have IDC but it is suggested to do examination")
+            
+        elif res_class0>=0.75:
+            st.write("You are very unlikely to have IDC")
+            
+        elif res_class0>=0.25 and res_class0 < 0.5:
+            st.write("It is likely you have IDC and it is suggested to do examination")
+               
         else:
-            st.write("It is Button Battery")
-            st.session_state.account[email] += 1
-            st.write("You got 1 MRC credit! Your current MRC balance is", st.session_state.account[email])
+            st.write("It is highly likely you have IDC and it is strongly suggested to do examination")
+
+
