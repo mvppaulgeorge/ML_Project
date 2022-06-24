@@ -70,7 +70,7 @@ if st.session_state.email:
             i_sum = i_sum+pred[0][0]
         res_class0=(i_sum)/l
         res_class1=1-res_class0
-        st.write("Our application has concluded a"+res_class1+" possibility of diagnosing IDC breast cancer")
+        st.write("Our application has concluded a"+str(res_class1)+" possibility of diagnosing IDC breast cancer")
         
         if res_class0>=0.5 and res_class0<0.75:
             st.write("You are unlikely to have IDC but it is suggested to do examination")
