@@ -44,18 +44,18 @@ if st.session_state.email:
           st.session_state.account[email] = 0
     
     
-    file = st.file_uploader("Please upload an image file", type=["jpg", "png"], accept_multiple_files=True)
+    file = st.file_uploader("Please upload image files", type=["jpg", "png"], accept_multiple_files=True)
 
     if file is None:
         st.text("Please upload an image file")
     else:
-        # myObj = {"action":"photo","email":email};
-         
+        # myObj = {"action":"photo","email":email};       
         x = []
         WIDTH = 50
         HEIGHT = 50
         CHANNELS = 3
-        for img in file[:25]:
+        for filename in file[:25]:
+          img = filename.getvalue()
           full_size_image = cv2.imread(img)
           x.append(cv2.resize(full_size_image, (WIDTH,HEIGHT), interpolation=cv2.INTER_CUBIC))
     
