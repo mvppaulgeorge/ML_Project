@@ -2,6 +2,7 @@ import tensorflow as tf
 model = tf.keras.models.load_model('cnn_2.h5')
 import streamlit as st
 import mysql.connector
+import numpy as np
 from PIL import Image, ImageOps
 st.set_page_config(
      page_title="Breast Cancer Diagnostic Application",
