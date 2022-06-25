@@ -1,5 +1,5 @@
 import tensorflow as tf
-model = tf.keras.models.load_model('cnn_3.h5')
+model = tf.keras.models.load_model('cnn_4.h5')
 import streamlit as st
 import mysql.connector
 import cv2
