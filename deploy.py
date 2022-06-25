@@ -72,6 +72,7 @@ if st.session_state.email:
             res_class0=0
             res_class1=0
         else:
+            
             res_class0=(i_sum)/l
             res_class1=1-res_class0
             if res_class0>=0.5 and res_class0<0.75:
@@ -85,8 +86,9 @@ if st.session_state.email:
 
             else:
                  st.write("Your case is highly likely to be malignant and it is strongly suggested to do examination")
-
-        st.write("Our application has concluded a "+str(round(res_class1,3))+" possibility of diagnosing IDC breast cancer")
+                    
+            st.write("Our application has concluded a "+str(round(res_class1,3))+" possibility of diagnosing IDC breast cancer")
+        
         
  
 
