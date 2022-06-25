@@ -17,12 +17,6 @@ st.set_page_config(
      }
  )
 
-def import_and_predict(img, model):
-    img = tf.keras.preprocessing.image.img_to_array(img)
-    img = tf.image.resize(img, [256, 256])
-    img = tf.expand_dims(img, axis=0)
-    prediction = model.predict(img)
-    return prediction
 
 if 'account' not in st.session_state:
      st.session_state.account = dict()
