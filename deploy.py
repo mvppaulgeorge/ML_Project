@@ -76,7 +76,7 @@ if st.session_state.email:
             res_class0=(i_sum)/l
             res_class1=1-res_class0
             
-            str_0 = "Our application has predicted a "+str(round(res_class1,3))+" possibility of diagnosing IDC breast cancer"
+            str_0 = "Our application has predicted a "+str(round(res_class1,3))+" possibility of diagnosing IDC breast cancer. "
             str_1 = "Your case is unlikely to be malignant but it is suggested to do further examination"
             str_2 = "Your case is very unlikely to be malignant"
             str_3 = "Your case is likely to be malignant it is suggested to do further examination"
@@ -85,19 +85,19 @@ if st.session_state.email:
             st.write(str_0)
             if res_class0>=0.5 and res_class0<0.75:
                  st.write(str_1)
-                 str_cnt=str_0+str_1
+                 str_cnt=str_0+" "+str_1
             
             elif res_class0>=0.75:
                  st.write(str_2)
-                 str_cnt=str_0+str_2
+                 str_cnt=str_0+" "+str_2
 
             elif res_class0>=0.25 and res_class0 < 0.5:
                  st.write(str_3)
-                 str_cnt=str_0+str_3
+                 str_cnt=str_0+" "+str_3
 
             else:
                  st.write(str_4)
-                 str_cnt=str_0+str_4
+                 str_cnt=str_0+" "+str_4
             
           
             myobj = gTTS(text=str_cnt, lang=language, slow=False)
