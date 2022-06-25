@@ -78,15 +78,15 @@ if st.session_state.email:
         st.write("Our application has concluded a "+str(round(res_class1,3))+" possibility of diagnosing IDC breast cancer")
         
         if res_class0>=0.5 and res_class0<0.75:
-            st.write("You are unlikely to have IDC but it is suggested to do examination")
+            st.write("Your case is unlikely to be malignant but it is suggested to do further examination")
             
         elif res_class0>=0.75:
-            st.write("You are very unlikely to have IDC")
+            st.write("Your case is very unlikely to be malignant")
             
         elif res_class0>=0.25 and res_class0 < 0.5:
-            st.write("It is likely you have IDC and it is suggested to do examination")
+            st.write("Your case is likely to be malignant it is suggested to do further examination")
                
         else:
-            st.write("It is highly likely you have IDC and it is strongly suggested to do examination")
+            st.write("Your case is highly likely to be malignant and it is strongly suggested to do examination")
 
 
