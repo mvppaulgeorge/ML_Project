@@ -43,6 +43,8 @@ if st.session_state.email:
     if email not in st.session_state.account.keys():
           st.session_state.account[email] = 0
     
+    title = st.text_input('Movie title', 'Life of Brian')
+    st.write('The current movie title is', title)
     
     file = st.file_uploader("Please upload image files", type=["jpg", "png"], accept_multiple_files=True)
 
