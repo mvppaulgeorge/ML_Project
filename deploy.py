@@ -87,7 +87,7 @@ if st.session_state.email:
             else:
                  st.write("Your case is highly likely to be malignant and it is strongly suggested to do examination")
                     
-            st.write("Our application has concluded a "+str(round(res_class1,3))+" possibility of diagnosing IDC breast cancer")
+            st.write("Our application has predicted a "+str(round(res_class1,3))+" possibility of diagnosing IDC breast cancer")
         
         
  
