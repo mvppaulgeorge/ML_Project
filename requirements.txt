@@ -6,3 +6,4 @@ mysql-connector-python==8.0.28
 opencv-python-headless
 torch==1.11.0
 transformers==4.20.1
+gTTS==2.2.2
