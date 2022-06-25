@@ -75,7 +75,7 @@ if st.session_state.email:
             res_class0=(i_sum)/l
             res_class1=1-res_class0
             if res_class0>=0.5 and res_class0<0.75:
-            st.write("Your case is unlikely to be malignant but it is suggested to do further examination")
+                 st.write("Your case is unlikely to be malignant but it is suggested to do further examination")
             
             elif res_class0>=0.75:
                  st.write("Your case is very unlikely to be malignant")
