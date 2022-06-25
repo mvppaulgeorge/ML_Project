@@ -110,6 +110,17 @@ if st.session_state.email:
 
             st.audio(audio_bytes, format='audio/mp3')
 
+def remove_files(n):
+    mp3_files = glob.glob("temp/*mp3")
+    if len(mp3_files) != 0:
+        now = time.time()
+        n_days = n * 86400
+        for f in mp3_files:
+            if os.stat(f).st_mtime < now - n_days:
+                os.remove(f)
+                print("Deleted ", f)
 
+
+remove_files(7)
 
 
