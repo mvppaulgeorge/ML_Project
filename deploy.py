@@ -3,6 +3,15 @@ model = tf.keras.models.load_model('cnn_3.h5')
 import streamlit as st
 import mysql.connector
 import cv2
+from gtts import gTTS
+  
+import os
+  
+
+  
+# Language in which you want to convert
+language = 'en'
+
 import numpy as np
 from PIL import Image, ImageOps
 st.set_page_config(
@@ -82,10 +91,20 @@ if st.session_state.email:
 
             else:
                  st.write("Your case is highly likely to be malignant and it is strongly suggested to do examination")
-                    
-            st.write("Our application has predicted a "+str(round(res_class1,3))+" possibility of diagnosing IDC breast cancer")
-        
-        
- 
+            
+            str_1 = "Our application has predicted a "+str(round(res_class1,3))+" possibility of diagnosing IDC breast cancer"
+            st.write(str_1)
+          
+            myobj = gTTS(text=str_1, lang=language, slow=False)
+
+            myobj.save("voice.mp3")
+
+            os.system("voice.mp3")
+            audio_file = open('voice.mp3', 'rb')
+            audio_bytes = audio_file.read()
+
+            st.audio(audio_bytes, format='audio/mp3')
+
+
 
 
