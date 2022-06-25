@@ -3,10 +3,8 @@ model = tf.keras.models.load_model('cnn_3.h5')
 import streamlit as st
 import mysql.connector
 import cv2
-from gtts import gTTS
-  
 import os
-  
+from gtts import gTTS
 
   
 # Language in which you want to convert
