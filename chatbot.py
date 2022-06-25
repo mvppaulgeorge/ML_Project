@@ -1,7 +1,4 @@
 # Install Transformers
-!pip install transformers
-!pip install torch
-!pip install streamlit
 
 import streamlit as st
 import torch
