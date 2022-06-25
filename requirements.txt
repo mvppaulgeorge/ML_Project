@@ -4,4 +4,5 @@ numpy==1.21.0
 pillow==8.4.0
 mysql-connector-python==8.0.28
 opencv-python-headless
-transformers=4.20.1
+torch==1.11.0
+transformers==4.20.1
