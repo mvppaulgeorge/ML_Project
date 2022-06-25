@@ -54,7 +54,7 @@ if st.session_state.email:
         WIDTH = 50
         HEIGHT = 50
         CHANNELS = 3
-        for img in file[:25]:
+        for img in file[:30]:
           full_size_image = np.array(Image.open(img))
           x.append(cv2.resize(full_size_image, (WIDTH,HEIGHT), interpolation=cv2.INTER_CUBIC))
     
@@ -71,8 +71,8 @@ if st.session_state.email:
         if l ==0:
             res_class0=0
             res_class1=0
-        else:
-            
+       
+        else:       
             res_class0=(i_sum)/l
             res_class1=1-res_class0
             if res_class0>=0.5 and res_class0<0.75:
