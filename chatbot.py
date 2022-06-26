@@ -6,7 +6,7 @@ client=Wit(access_token)
 def backend(intent):
 	if intent == 'Project_theme':
 	    return "Our Project Theme is Breast Cancer Predictor, it is called Project "
-	elif intent == 'skin_cancer':
+	elif intent == 'breast_cancer':
 	    return "Skin cancer is the abnormal growth of skin cells, which most often develops on skin exposed to the sun. But this common form of cancer can also occur on areas of your skin not ordinarily exposed to sunlight."
 	elif intent == 'SkinCancer_types': 
 	    return "There 7 Major types of Skin Cancer namely- 1. Basal Cell Carcinoma, 2. Squamous Cell Carcinoma, 3. Melanoma, 4. Merkel Cell Carcinoma, 5. Actinic Keratosis, 6.Atypical Fibroxanthoma, 7. Dermatofibrosarcoma Protuberans"
@@ -47,7 +47,27 @@ def backend(intent):
 	elif intent == "":
 	    return "Prior to the development of Mohs methods for excision, there was a high recurrence rate with dermatofibrosarcoma protuberans. That has changed. Even with recurrent dermatofibrosarcoma protuberans, Mohs surgery has a 98 percent cure rate. Medines are not suggested unless a special case"     
     
-
+st.title("Chatbot :pencil2:")  
+	st.subheader('Solve your doubts by interacting with our powerful chatbot.')
+	if st.checkbox('You can try one of these queries:'):
+		st.text('What is your project theme?')
+		st.text("What are the 7 types of skin cancer you can identify?")
+		st.text('Can Merkel cell Carcinoma be cured?')
+	query = st.text_area('Enter your query','')
+	if st.button('Ask Chatbot!'):
+		response = client.message(query)
+		#st.text(response['intents'])
+		#st.text(len(response['intents']))
+		if len(response['intents'])!=0:
+		
+		    intent = response['intents'][0]['name']
+		    if intent is None:
+		        st.warning('Try framing the question in a different way...')
+		    else:
+		        output = backend(intent)
+		        st.markdown(f"## <font color='blue'>** {output}**</font>",unsafe_allow_html=True)
+		else:
+		    st.warning('Enter a valid question') 
 
 # Install Transformers
 
