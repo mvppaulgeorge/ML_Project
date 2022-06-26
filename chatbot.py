@@ -51,8 +51,8 @@ st.title("Chatbot :pencil2:")
 	st.subheader('Solve your doubts by interacting with our powerful chatbot.')
 	if st.checkbox('You can try one of these queries:'):
 		st.text('What is your project theme?')
-		st.text("What are the 7 types of skin cancer you can identify?")
-		st.text('Can Merkel cell Carcinoma be cured?')
+		st.text("What are the types of breast cancer?")
+		st.text('Can Invasive Ductal Carcinoma be cured?')
 	query = st.text_area('Enter your query','')
 	if st.button('Ask Chatbot!'):
 		response = client.message(query)
