@@ -6,6 +6,8 @@ import cv2
 import glob
 import os
 from gtts import gTTS
+import speech_recognition as sr 
+from google_trans_new import google_translator 
 
   
 # Language in which you want to convert
@@ -34,8 +36,10 @@ st.write("""
          )
 st.write("This is a simple image classification web app to diagnose breast cancer IDC using tissue example images")
 email = st.text_input("Enter your email:", "trojan@usc.edu")
+name = st.text_input("Enter your name:", "")
 if 'email' not in st.session_state:
-    st.session_state.email = False
+  if 'name' not in st.session_state:
+     st.session_state.email = False
 press = st.button('Submit')
 if press:
     st.session_state.email = True
