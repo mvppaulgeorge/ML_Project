@@ -1,5 +1,4 @@
 import tensorflow as tf
-model = tf.keras.models.load_model('cnn_3.h5')
 import streamlit as st
 import mysql.connector
 import cv2
@@ -8,6 +7,8 @@ import os
 from gtts import gTTS
 from googletrans import Translator
 
+
+model = tf.keras.models.load_model('cnn_3.h5')
   
 # Language in which you want to convert
 language = 'en'
