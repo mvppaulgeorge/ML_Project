@@ -6,7 +6,7 @@ import cv2
 import glob
 import os
 from gtts import gTTS
-from google_trans_new import google_translator 
+from googletrans import Translator
 
   
 # Language in which you want to convert
