@@ -102,7 +102,7 @@ if st.session_state.email:
             else:
                  st.write(str_4)
                  str_cnt=str_0+" "+str_4
-            
+           
           
             myobj = gTTS(text=str_cnt, lang=language, slow=False)
 
@@ -113,6 +113,36 @@ if st.session_state.email:
             audio_bytes = audio_file.read()
 
             st.audio(audio_bytes, format='audio/mp3')
+            
+            if st.button("Translate"):
+                translator = Translator()
+                out_lang = st.selectbox(
+                    "Select your output language",
+                    ("Chinese", "French", "Spanish", "Korean", "Japanese"),
+                )
+                if out_lang == "Chinese":
+                    output_language = "zh-cn"
+                elif out_lang == "French":
+                    output_language = "fr"
+                elif out_lang == "Spanish":
+                    output_language = "es"
+                elif out_lang == "Korean":
+                    output_language = "ko"
+                elif out_lang == "Japanese":
+                    output_language = "ja"
+                    
+                translation = translator.translate(text, src=language, dest=output_language)
+                trans_text = translation.text
+                
+                ts = gTTS(text=str_cnt, lang=language, slow=False)
+
+                ts.save("voice_t.mp3")
+
+                os.system("voice_t.mp3")
+                audio_file = open('voice_t.mp3', 'rb')
+                audio_bytes = audio_file.read()
+
+                st.audio(audio_bytes, format='audio/mp3')
 
 def remove_files(n):
     mp3_files = glob.glob("temp/*mp3")
