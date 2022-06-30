@@ -6,7 +6,6 @@ import cv2
 import glob
 import os
 from gtts import gTTS
-import speech_recognition as sr 
 from google_trans_new import google_translator 
 
   
