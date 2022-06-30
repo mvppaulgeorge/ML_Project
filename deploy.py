@@ -37,8 +37,10 @@ st.write("This is a simple image classification web app to diagnose breast cance
 email = st.text_input("Enter your email:", "trojan@usc.edu")
 name = st.text_input("Enter your name:", "")
 if 'email' not in st.session_state:
-  if 'name' not in st.session_state:
-     st.session_state.email = False
+    if 'name' not in st.session_state:
+       st.session_state.email = False
+
+
 press = st.button('Submit')
 if press:
     st.session_state.email = True
@@ -131,15 +133,15 @@ if st.session_state.email:
                 elif out_lang == "Japanese":
                     output_language = "ja"
                     
-                translation = translator.translate(text, src=language, dest=output_language)
+                translation = translator.translate(str_cnt, src=language, dest=output_language)
                 trans_text = translation.text
                 
-                ts = gTTS(text=str_cnt, lang=language, slow=False)
+                trans = gTTS(trans_text, lang=output_language, slow=False)
 
-                ts.save("voice_t.mp3")
+                trans.save("ts.mp3")
 
-                os.system("voice_t.mp3")
-                audio_file = open('voice_t.mp3', 'rb')
+                os.system("trans.mp3")
+                audio_file = open('trans.mp3', 'rb')
                 audio_bytes = audio_file.read()
 
                 st.audio(audio_bytes, format='audio/mp3')
