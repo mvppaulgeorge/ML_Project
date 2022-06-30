@@ -116,23 +116,24 @@ if st.session_state.email:
 
             st.audio(audio_bytes, format='audio/mp3')
             
+            
+            translator = Translator()
+            out_lang = st.selectbox(
+                "Select your output language",
+                ("Chinese", "French", "Spanish", "Korean", "Japanese"),
+            )
+            if out_lang == "Chinese":
+                output_language = "zh-cn"
+            elif out_lang == "French":
+                output_language = "fr"
+            elif out_lang == "Spanish":
+                output_language = "es"
+            elif out_lang == "Korean":
+                output_language = "ko"
+            elif out_lang == "Japanese":
+                output_language = "ja"
+            
             if st.button("Translate"):
-                translator = Translator()
-                out_lang = st.selectbox(
-                    "Select your output language",
-                    ("Chinese", "French", "Spanish", "Korean", "Japanese"),
-                )
-                if out_lang == "Chinese":
-                    output_language = "zh-cn"
-                elif out_lang == "French":
-                    output_language = "fr"
-                elif out_lang == "Spanish":
-                    output_language = "es"
-                elif out_lang == "Korean":
-                    output_language = "ko"
-                elif out_lang == "Japanese":
-                    output_language = "ja"
-                    
                 translation = translator.translate(str_cnt, src=language, dest=output_language)
                 trans_text = translation.text
                 
