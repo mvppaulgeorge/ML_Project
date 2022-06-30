@@ -137,12 +137,14 @@ if st.session_state.email:
                 translation = translator.translate(str_cnt, src=language, dest=output_language)
                 trans_text = translation.text
                 
+                st.write(trans_text)
+                
                 trans = gTTS(trans_text, lang=output_language, slow=False)
 
-                trans.save("ts.mp3")
+                trans.save("tts.mp3")
 
-                os.system("trans.mp3")
-                audio_file = open('trans.mp3', 'rb')
+                os.system("tts.mp3")
+                audio_file = open('tts.mp3', 'rb')
                 audio_bytes = audio_file.read()
 
                 st.audio(audio_bytes, format='audio/mp3')
