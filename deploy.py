@@ -8,7 +8,7 @@ from gtts import gTTS
 from googletrans import Translator
 
 
-model = tf.keras.models.load_model('cnn_3.h5')
+model = tf.keras.models.load_model('cnn_6.h5')
   
 # Language in which you want to convert
 language = 'en'
