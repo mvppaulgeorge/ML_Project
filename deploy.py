@@ -66,7 +66,6 @@ if st.session_state.email:
           x.append(cv2.resize(full_size_image, (WIDTH,HEIGHT), interpolation=cv2.INTER_CUBIC))
     
         X=np.array(x)
-        X=X/255.0
         test = X
         l = len(test)
         i_sum = 0
