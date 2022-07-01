@@ -86,7 +86,7 @@ if st.session_state.email:
             str_1 = "Your case is unlikely to be malignant but it is suggested to do further examination"
             str_2 = "Your case is very unlikely to be malignant"
             str_3 = "Your case is likely to be malignant it is suggested to do further examination"
-            str_4 = "Your case is likely to be malignant it is suggested to do further examination"
+            str_4 = "Your case is very likely to be malignant it is strongly suggested to do further examination"
             
             st.write(str_0)
             if res_class0>=0.5 and res_class0<0.75:
