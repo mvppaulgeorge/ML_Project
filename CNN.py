@@ -134,7 +134,7 @@ def process_images(lowerIndex,upperIndex):
 # In[ ]:
 
 
-X, Y = process_images(0,10000)
+X, Y = process_images(0,100000)
 
 
 # In[ ]:
@@ -562,7 +562,7 @@ model.summary()
 
 def runModel(model,a,b,c,d,e):
     
-    epochs = 22
+    epochs = 16
     
     learn_control = ReduceLROnPlateau(monitor='val_acc', patience=5,
                                   verbose=1,factor=0.2, min_lr=1e-7)
@@ -598,23 +598,6 @@ runModel(model,X_train, Y_trainHot, X_test, Y_testHot,class_weight1_d)
 #runModel(model,X_trainRosReshaped, Y_trainRosHot, X_testRosReshaped, Y_testRosHot,class_weight2_d)
 
 
-# In[ ]:
-
-
-model = BuildCNN_2(num_classes=2)
-
-
-# In[ ]:
-
-
-model.summary()
-
-
-# In[ ]:
-
-
-model.save("cnn_2.h5")
-
 
 # In[ ]:
 
@@ -631,7 +614,6 @@ y_pred = model.predict(img)
 print(y_pred)
 
 
-# In[ ]:
 
 
 
